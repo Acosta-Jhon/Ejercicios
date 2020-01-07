@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>1ª Ejercicio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    </body>
+    <script>
+//Ejercicio 1ª
+// Sistema de votos
+
+var registro = ["Derek", "Scoot", "Derek", "Scott", "Cristal", "Celeste"];
+
+Array.prototype.unique = function(a) {
+    return function() { return this.filter(a) }
+}(function(a, b, c) {
+    return c.indexOf(a, b + 1) < 0
+});
+
+var candidatos = registro.unique();
+var contador = 0;
+
+function recorre() {
+    let i = 0;
+    let numVotos = [];
+    let acumulador = 0;
+    
+
+    while (contador < candidatos.length) {
+        if (i > registro.length - 1) {
+            i = 0;
+            numVotos.push(acumulador);
+            contador++;
+            acumulador = 0;
+        } else {
+            if (candidatos[cont] == registro[i]) {
+                acumulador++;
+            }
+            i++;
+        }
+    }
+    return (numVotos);
+}
+
+var votaciones = recorre();
+
+//Generar Ganador
+function ganador(x, y) {
+    let maximo = Math.max(...y);
+    let j = [];
+    let m = [];
+    y.forEach(function(element, index, array) {
+        if (maximo == element) {
+            m.push(index);
+        }
+    });
+    if (m.length == 1) {
+        return (x[m[0]]);
+    } else {
+        for (let k = 0; k < m.length; k++) {
+            j.push(x[m[k]]);
+        }
+        j.sort();
+        return (j[0]);
+    }
+}
+console.log("Registro de votos: " + registro + "\n Ganador por conteo: " + ganador(candidatos, votaciones));
+    </script>
+</html>
