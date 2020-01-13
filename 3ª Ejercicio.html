@@ -18,7 +18,7 @@ var cont = frase.length - 1;
 function desordenar() {
     if (contador < 0) {
         while (contador < max) {
-            cont++;
+            contador++;
             textoMostrar.push(frase[contador]);
         }
         console.log("Frase 1 es: " + frase);
@@ -27,7 +27,7 @@ function desordenar() {
         if (frase[contador] == " ") {
             min = cont - 1;
             while (contador < max) {
-                cont++;
+                contador++;
                 textoMostrar.push(frase[contador]);
 
             }
