@@ -25,7 +25,7 @@ function desordenar() {
         console.log("Frase desordenada es: " + textoMostrar);
     } else {
         if (frase[contador] == " ") {
-            min = cont - 1;
+            min = contador - 1;
             while (contador < max) {
                 contador++;
                 textoMostrar.push(frase[contador]);
