@@ -7,21 +7,39 @@
     <title>3 Ejercicio</title>
 </head>
 <body>
-    <input type="text" id="texto" placeholder=" cadena de texto">
-    <input type="button" value="Mostrar" id="mostrar" onclick="">
 </body>
 <script>
-var base = [];
-function reversa(){
-    var texto = document.getElementById("texto");
-    base.push("texto");
+var frase = prompt("Ingrese una frase para desordenar: ");
+var textoMostrar = [];
+var min = 0;
+var max = frase.length - 1;
+var cont = frase.length - 1;
 
-    document.write("El texto introducido es : " + texto + "<br/>");
-    
-    var reves = base.reverse();
-    
-    document.write( "De inicio a fin : "  + reves )
+function desordenar() {
+    if (contador < 0) {
+        while (contador < max) {
+            cont++;
+            textoMostrar.push(frase[contador]);
+        }
+        console.log("Frase 1 es: " + frase);
+        console.log("Frase desordenada es: " + textoMostrar);
+    } else {
+        if (frase[contador] == " ") {
+            min = cont - 1;
+            while (contador < max) {
+                cont++;
+                textoMostrar.push(frase[contador]);
+
+            }
+            textoMostrar.push(" ");
+            max = min;
+            contador = max - 1;
+            desordenar();
+        } else {
+            contador-desordenar();
+        }
+    }
 }
-
+desordenar();
 </script>
 </html>
